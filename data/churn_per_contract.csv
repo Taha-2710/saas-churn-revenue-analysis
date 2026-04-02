@@ -1,0 +1,22 @@
+YEAR,CONTRACT,TOTAL_CUSTOMERS,CHURNED_CUSTOMERS,CHURN_RATE
+2020,Month-to-month,85,20,0.24
+2020,"One year",257,32,0.12
+2020,"Two year",919,28,0.03
+2021,Month-to-month,209,51,0.24
+2021,"One year",324,45,0.14
+2021,"Two year",311,12,0.04
+2022,Month-to-month,302,101,0.33
+2022,"One year",281,35,0.12
+2022,"Two year",189,6,0.03
+2023,Month-to-month,450,148,0.33
+2023,"One year",243,21,0.09
+2023,"Two year",105,1,0.01
+2024,Month-to-month,696,251,0.36
+2024,"One year",216,18,0.08
+2024,"Two year",85,1,0.01
+2025,Month-to-month,1299,583,0.45
+2025,"One year",137,13,0.09
+2025,"Two year",73,0,0.00
+2026,Month-to-month,834,501,0.60
+2026,"One year",14,2,0.14
+2026,"Two year",3,0,0.00

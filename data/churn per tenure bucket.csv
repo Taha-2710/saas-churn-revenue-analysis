@@ -1,0 +1,5 @@
+tenure_bucket,total_customers,churned_customers,churn_rate_percentage,lost_mrr,annual_revenue_lost
+"0-6 Months",851,503,0.59,30223.7,362684.4
+"6-12 Months",1509,596,0.39,43746.35,524956.2
+"12-24 Months",997,270,0.27,21257.7,255092.4
+"24+ Months",3675,500,0.14,43903.1,526837.2

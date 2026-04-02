@@ -1,0 +1,6 @@
+revenue_quintile,customers,churned_customers,churn_rate
+1,1407,462,0.33
+2,1407,508,0.36
+3,1406,420,0.30
+4,1406,351,0.25
+5,1406,128,0.09
