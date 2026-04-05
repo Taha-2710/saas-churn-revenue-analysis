@@ -274,3 +274,15 @@ where InternetService in('DSL','Fiber optic')
 group by 1,2
 order by 1;
 
+-- FINDING OUT HOW MUCH REVENUE CONTRIBUTED BY CONTRACT TYPE PER YEAR
+SELECT 
+YEAR(STR_TO_DATE(start_date,'%d/%m/%Y')) AS YEAR,
+p.billing_cycle AS contract,
+ROUND(SUM(f.mrr_value),2) AS revenue_per_contract
+FROM fact_subscriptions f
+JOIN dim_plan p ON p.plan_id=f.plan_id
+GROUP BY 1,2
+ORDER BY 1;
+
+-- 
+
