@@ -51,11 +51,12 @@ This project investigates:
 ---
 
 ## 📸 Dashboard Preview
+<img width="1752" height="988" alt="Executive Overview" src="https://github.com/user-attachments/assets/730d6375-4f9a-4d1d-9e5f-d8894c22baf7" />
+<img width="1367" height="772" alt="Churn Intelligence" src="https://github.com/user-attachments/assets/9ba9fa46-ba14-490c-a638-55cc386030fa" />
+<img width="1366" height="767" alt="Revenue At Risk" src="https://github.com/user-attachments/assets/c8b9c914-35a8-4af8-8b54-d1defd5aa012" />
+<img width="1363" height="771" alt="Retention Drivers" src="https://github.com/user-attachments/assets/dca8c53a-8bdc-4225-990a-01f6a4418365" />
+<img width="1192" height="357" alt="Churn Reduction Simulator" src="https://github.com/user-attachments/assets/c85d53d1-c608-4dfa-86ef-0cd962e363b6" />
 
-![Overview](screenshots/overview.png)  
-![Churn Analysis](screenshots/churn_analysis.png)  
-![Revenue Analysis](screenshots/revenue_analysis.png)  
-![Scenario Simulator](screenshots/simulator.png)  
 
 ---
 
