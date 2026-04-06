@@ -279,10 +279,66 @@ SELECT
 YEAR(STR_TO_DATE(start_date,'%d/%m/%Y')) AS YEAR,
 p.billing_cycle AS contract,
 ROUND(SUM(f.mrr_value),2) AS revenue_per_contract
-FROM fact_subscriptions f
+FROM fact_subscriptions fF
 JOIN dim_plan p ON p.plan_id=f.plan_id
 GROUP BY 1,2
 ORDER BY 1;
 
--- 
+-- FINDING OUT HOW MUCH ANNUAL RECURRING REVENUE (ARR) IS GENERATED PER YEAR ALONG WITH ANNUAL REVENUE PER CUSTOMER (ARPC) PER YEAR
+select 
+Year(str_to_date(start_date,'%d/%m/%Y')) as YEAR,
+round(sum(CASE WHEN churn_flag=0 then (mrr_value)else 0 end),2) as ARR,
+round(sum(CASE WHEN churn_flag=0 then (mrr_value)else 0 end)/count(case when churn_flag=0 then customer_id else null end),2) as arpc
+from fact_subscriptions
+group by 1
+order by 1;
 
+-- NUMBER OF ACTIVE CUSTOMERS PER YEAR
+SELECT 
+year(str_to_date(start_date,'%d/%m/%Y')) as YEAR,
+count(CASE WHEN churn_flag=0 then customer_id else null end) as ACTIVE_CUSTOMERS
+from fact_subscriptions
+group by 1
+order by 1;
+
+-- FINDING OUT WHAT IS THE ANNUAL REVENUE RATE PER YEAR OF THE COMPANY
+with mrr as (SELECT 
+YEAR(STR_TO_DATE(start_date,'%d/%m/%Y')) AS YEAR,
+ROUND(SUM(CASE WHEN churn_flag=0 THEN mrr_value ELSE NULL END),2) as active_mrr
+FROM fact_subscriptions
+GROUP BY 1
+ORDER BY 1),
+total_mrr as (
+select 
+YEAR(STR_TO_DATE(start_date,'%d/%m/%Y')) AS YEAR,
+sum(mrr_value) as total_mrr
+from fact_subscriptions
+group by 1
+order by 1)
+select 
+m.YEAR,
+round(m.active_mrr/t.total_mrr,2) as revenue_rate
+from mrr m
+join total_mrr t on m.YEAR=t.YEAR
+
+-- FINDING OUT HOW MANY CUSTOMERS CHURNED (CHURNED RATE) PER PLAN TYPE PER YEAR
+with mrr as (SELECT 
+YEAR(STR_TO_DATE(start_date,'%d/%m/%Y')) AS YEAR,
+ROUND(SUM(CASE WHEN churn_flag=0 THEN mrr_value ELSE NULL END),2) as active_mrr
+FROM fact_subscriptions
+GROUP BY 1
+ORDER BY 1),
+total_mrr as (
+select 
+YEAR(STR_TO_DATE(start_date,'%d/%m/%Y')) AS YEAR,
+sum(mrr_value) as total_mrr
+from fact_subscriptions
+group by 1
+order by 1)
+select 
+m.YEAR,
+round(m.active_mrr/t.total_mrr,2) as revenue_rate
+from mrr m
+join total_mrr t on m.YEAR=t.YEAR
+
+--
